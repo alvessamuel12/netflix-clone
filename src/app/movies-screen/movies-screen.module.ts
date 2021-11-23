@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MoviesScreenComponent } from './movies-screen.component';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -9,7 +9,8 @@ import { MoviesScreenComponent } from './movies-screen.component';
     MoviesScreenComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule
   ],
   exports: [
     MoviesScreenComponent

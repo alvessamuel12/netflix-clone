@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-movies-screen',
   templateUrl: './movies-screen.component.html',
