@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesScreenComponent } from './movies-screen.component';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule
   ],
   exports: [
     MoviesScreenComponent

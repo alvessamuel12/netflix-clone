@@ -1,7 +1,14 @@
-<section>
+<section id="movies-screen"
+[ngStyle]="layoutSize === 'XSmall' || layoutSize === 'Small' ? {'font-size': '8px'}
+:
+(layoutSize === 'Medium' ? {'font-size': '12px'}
+:
+{'font-size': '16px'})">
   <article
     class="featured-movie"
-    [ngStyle]="{ 'background-image': 'url(' + background + ')' }"
+    [ngStyle]="{
+      'background-image': 'url(' + background + ')'
+    }"
   >
     <div class="container">
       <nav>
@@ -46,17 +53,30 @@
           <span>Mais unformações</span>
         </button>
       </div>
-    </div>
-  </article>
-  <article>
-    <div class="container">
       <div class="popular">
+        <h2>Populres na Netflix{{layoutSize}}</h2>
         <div class="card-box">
           <button (click)="slideCard(-1)" mat-button>
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
           <ul class="card-wrapper">
-            <li class="card-item" *ngFor="let serie of cardPopularToShow; let i = index" >
+            <li class="card-item" *ngFor="let serie of dataPopular; let i = index" >
+                <img  src="{{serie.cardImage}}">
+            </li>
+          </ul>
+          <button mat-button (click)="slideCard(1)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="popular">
+        <h2>Continue assistindo como {{user.name}}</h2>
+        <div class="card-box">
+          <button (click)="slideCard(-1)" mat-button>
+            <mat-icon>arrow_back_ios</mat-icon>
+          </button>
+          <ul class="card-wrapper">
+            <li class="card-item" *ngFor="let serie of dataKeepWatching; let i = index" >
                 <img  src="{{serie.cardImage}}">
             </li>
           </ul>
