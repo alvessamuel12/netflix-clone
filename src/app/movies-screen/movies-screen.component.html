@@ -1,39 +1,70 @@
 <section>
-  <article class="featured-movie" [ngStyle]="{'background-image': 'url(' + background + ')'}">
+  <article
+    class="featured-movie"
+    [ngStyle]="{ 'background-image': 'url(' + background + ')' }"
+  >
     <div class="container">
       <nav>
-      <div id="logo"><a href=""><img src="assets/img/logo.png" alt="Logo"></a></div>
-      <ul class="navbar">
-        <li><a class="active" href="#">Início</a></li>
-        <li><a href="#">Séries</a></li>
-        <li><a href="#">Filmes</a></li>
-        <li><a href="#">Bombando</a></li>
-        <li><a href="#">Minha lista</a></li>
-      </ul>
-    </nav>
-    <div class="featured-movie-title">
-      <img src="assets/img/titulo-banner1.png" alt="Filme em destaque: Alerta Vermelho">
-    </div>
-    <div class="rank">
-      <div class="top10">
+        <div id="logo">
+          <a href=""><img src="assets/img/logo.png" alt="Logo" /></a>
+        </div>
+        <ul class="navbar">
+          <li><a class="active" href="#">Início</a></li>
+          <li><a href="#">Séries</a></li>
+          <li><a href="#">Filmes</a></li>
+          <li><a href="#">Bombando</a></li>
+          <li><a href="#">Minha lista</a></li>
+        </ul>
+      </nav>
+      <div class="featured-movie-title">
+        <img
+          src="assets/img/titulo-banner1.png"
+          alt="Filme em destaque: Alerta Vermelho"
+        />
+      </div>
+      <div class="rank">
+        <div class="top10">
           <span>TOP</span>
           <span>10</span>
+        </div>
+        <h1>Brasil: top 2 de hoje</h1>
       </div>
-      <h1>Brasil: top 2 de hoje</h1>
+      <div class="featured-movie-description">
+        <p>
+          Um agente do FBI persegue o ladrão de arte mais procurado do mundo.
+          Ele só não esperava ter seu alvo como parceiro para prender uma
+          bandida muito esperta.
+        </p>
+      </div>
+      <div class="button-wrapper">
+        <button mat-stroked-button>
+          <mat-icon>play_arrow</mat-icon>
+          <span>Assistir</span>
+        </button>
+        <button mat-stroked-button>
+          <mat-icon>info_outline</mat-icon>
+          <span>Mais unformações</span>
+        </button>
+      </div>
     </div>
-    <div class="featured-movie-description">
-      <p>Um agente do FBI persegue o ladrão de arte mais procurado do mundo. Ele só não esperava ter seu alvo como parceiro para prender uma bandida muito esperta.</p>
-    </div>
-    <div class="button-wrapper">
-      <button mat-stroked-button>
-        <mat-icon>play_arrow</mat-icon>
-        <span>Assistir</span>
-      </button>
-      <button mat-stroked-button>
-        <mat-icon>info_outline</mat-icon>
-        <span>Mais unformações</span>
-      </button>
-    </div>
+  </article>
+  <article>
+    <div class="container">
+      <div class="popular">
+        <div class="card-box">
+          <button (click)="slideCard(-1)" mat-button>
+            <mat-icon>arrow_back_ios</mat-icon>
+          </button>
+          <ul class="card-wrapper">
+            <li class="card-item" *ngFor="let serie of cardPopularToShow; let i = index" >
+                <img  src="{{serie.cardImage}}">
+            </li>
+          </ul>
+          <button mat-button (click)="slideCard(1)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </article>
 </section>

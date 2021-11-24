@@ -1,5 +1,6 @@
 section{
-  background-color: #E5E5E5;
+  background-color: #141414;
+  box-sizing: border-box;
 }
 ul{
   list-style: none;
@@ -121,4 +122,48 @@ gap: 2rem;
 .button-wrapper button:last-child:hover{
   background-color: rgba(255, 255, 255, 0.19);
 }
+// .card-wrapper{
 
+// }
+.card-box{
+  position: relative;
+}
+.popular button{
+  border: none;
+  position: absolute;
+  top:30%;
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+.popular button mat-icon{
+  color: #fff;
+  transition: font-size 0.2s ease-in-out;
+  font-size: 2rem;
+  transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+}
+
+.popular button mat-icon:hover{
+  font-size: 3rem;
+  transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(-0.5rem);
+}
+
+.popular button:last-child mat-icon:hover{
+  transform: translateX(-0.5rem) translateY(-0.5rem);
+}
+.popular button:last-child{
+  right: 3vw;
+}
+.card-wrapper{
+  display: flex;
+  width: 95vw;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 3%;
+
+
+}
+.card-item{
+  width: 15%;
+  flex-shrink: 0;
+}
