@@ -1,0 +1,80 @@
+main {
+    position: relative;
+    background-image: url('./assets/netflix_background_1.png');
+    width: 100%;
+    aspect-ratio: 1440 / 809;
+    img {
+        width: 11.458%;
+        position: absolute;
+        top: 3.708%;
+        left: 5.556%;
+    }
+    section {
+        position: absolute;
+        top: 12.732%;
+        left: 34.722%;
+        width: 30.556%;
+        aspect-ratio: 2 / 3;
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: 13.636% 13.182% 13.636% 15.455%;
+        box-sizing: border-box;
+        h3 {
+            color: white;
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 9rem;
+        }
+        form {
+            input {
+                background-color: #333333;
+                border-radius: 5px;
+                font-size: 1.6rem;
+                color: #8C8C8C;
+            }
+            p {
+                font-weight: 300;
+                font-size: 1.3rem;
+                line-height: 2rem;
+                color: #F28300;
+                visibility: hidden;
+            }
+            button {
+                background-color: #E50914;
+                border-radius: 10px;
+                color: white;
+                font-size: 1.6rem;
+                :hover {
+                    background-color: #FD000D;
+                }
+            }
+        }
+        > p {
+            font-size: 1.2rem;
+            line-height: 2rem;
+            color: #8C8C8C;
+        }
+    }
+}
+
+footer {
+    background-color: black;
+    color: #6F6F6F;
+    letter-spacing: 0.05em;
+    padding: 4.861% 0 4.861% 8.889%;
+    box-sizing: border-box;
+    h3 {
+        font-size: 2.6rem;
+        line-height: 4.7rem;
+        margin-bottom: 1.389%;
+    }
+    > div {
+        display: flex;
+        gap: 4.861%;
+        margin-bottom: 3.125%;
+    }
+    a, p {
+        font-size: 1.8rem;
+        line-height: 4.5rem;
+        text-decoration: none;
+    }
+}
