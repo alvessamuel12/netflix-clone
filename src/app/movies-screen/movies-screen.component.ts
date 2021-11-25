@@ -1,4 +1,4 @@
-import { Observable, Subscription, Subject, takeUntil } from 'rxjs';
+import { Observable, Subscription, Subject, takeUntil, delay } from 'rxjs';
 import { MoviesScreenService } from './movies-screen.service';
 import { Component, OnInit, OnDestroy, OnChanges} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -64,8 +64,24 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   dataKeepWatching:Array<SeriesData> = []
   Subscription1:Array<Subscription>= []
   sliderPossibility = false
-  slideCard2(element: Element, direction: number){
-    element.scrollLeft += 100 * direction
+  dropdownActive = false
+  slideCard2(element: HTMLElement, direction: number){
+    element.scrollLeft += 300 * direction
+  }
+  isOverflown(element: HTMLElement) {
+    return element.scrollWidth > element.clientWidth;
+  }
+  showMenuDropdown(){
+    this.dropdownActive = !this.dropdownActive
+  }
+  closeMenuDropdown(){
+    const timeout = setTimeout((x:string)=>{
+      this.dropdownActive = false
+      clearTimeout(timeout)
+    },200)
+  }
+  teste(){
+    console.log('teste')
   }
   ngOnInit(): void {
     this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
