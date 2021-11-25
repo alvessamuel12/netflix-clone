@@ -3,10 +3,10 @@
     <section>
         <h2>Entrar</h2>
         <form [formGroup]="dataForm" (ngSubmit)="performLogin()">
-            <input name="login" formControlName="login" type="text" placeholder="Email ou número de telefone">
-            <p for="login">Informe um e-mail ou número de telefone válido.</p>
-            <input name="password" formControlName="password" type="password" placeholder="Senha">
-            <p for="password">A senha deve ter entre 4 e 60 caracteres.</p>
+            <input formControlName="login" type="text" placeholder="Email ou número de telefone">
+            <p>Informe um e-mail ou número de telefone válido.</p>
+            <input formControlName="password" type="password" placeholder="Senha">
+            <p>A senha deve ter entre 4 e 60 caracteres.</p>
             <button>Entrar</button>
         </form>
         <p>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a [hidden]="!recaptchaHidden" (click)="showInfo()">Saiba mais</a></p>
