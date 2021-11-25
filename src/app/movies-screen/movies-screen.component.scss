@@ -10,6 +10,7 @@ section{
 article{
   background-size: 100vw;
 }
+
 ul{
   list-style: none;
   padding: 0;
@@ -140,9 +141,6 @@ gap: 2vw;
   font-size: calc(0.5em + 2vw);
   height: auto;
   width: auto;
-  // position: absolute;
-  // top: 25%;
-  // left: 0;
 }
 .button-wrapper button:last-child{
   background-color: rgba(255, 255, 255, 0.46);
@@ -152,11 +150,7 @@ gap: 2vw;
 .button-wrapper button:last-child:hover{
   background-color: rgba(255, 255, 255, 0.19);
 }
-// .card-wrapper{
-
-// }
 .popular{
-  // transform: translateY(-5vw);
   margin-top: 4vw;
 }
 .popular h2{
@@ -196,7 +190,7 @@ gap: 2vw;
   display: flex;
   width: 95vw;
   flex-wrap: nowrap;
-  overflow: hidden;
+  overflow: scroll;
   gap: 3%;
   margin-right: 0;
 }

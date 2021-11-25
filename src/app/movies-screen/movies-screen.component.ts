@@ -52,24 +52,21 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
         }
       });
     })
-
   }
   background:string = 'assets/img/banner.png'
   polular = [1,2,3,4,5,6]
-  dataPopular:Array<SeriesData> = []
-  Subscription:Array<Subscription>= []
   keepWatching = [7,8]
-  dataKeepWatching:Array<SeriesData> = []
-  Subscription1:Array<Subscription>= []
-  qtCards = 4
-  initialCard = 0
-  sliderCount = 0
-  sliderPossibility = false
-
   user = {
     name: 'Usuário1'
   }
-
+  dataPopular:Array<SeriesData> = []
+  Subscription:Array<Subscription>= []
+  dataKeepWatching:Array<SeriesData> = []
+  Subscription1:Array<Subscription>= []
+  sliderPossibility = false
+  slideCard2(element: Element, direction: number){
+    element.scrollLeft += 100 * direction
+  }
   ngOnInit(): void {
     this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
       this.Subscription.push(serie.subscribe(item => {
@@ -81,15 +78,6 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
         this.dataKeepWatching.push(item as SeriesData)
       }))
     })
-    console.log(this.layoutSize)
-  }
-
-  slideCard(change:number){
-    this.initialCard += change
-    if(this.sliderCount >= 0 && this.sliderCount <= this.dataPopular.length - this.qtCards - 1 ){
-      this.sliderCount += change
-      this.sliderPossibility = true
-    }
   }
   ngOnDestroy() {
     this.Subscription.map(x => x.unsubscribe)
