@@ -1,6 +1,6 @@
 :root {
     font-family: 'Martel Sans', sans-serif;
-    font-size: clamp(6px, 1vw, 10px);
+    font-size: clamp(3.4px, 1vw, 10px);
     font-weight: 400;
 }
 
@@ -10,4 +10,5 @@ html, body {
 
 body {
     margin: 0;
+    min-width: 340px;
 }

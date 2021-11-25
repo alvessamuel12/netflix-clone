@@ -1,80 +1,196 @@
+h2, h3, p {
+    margin: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
 main {
     position: relative;
-    background-image: url('./assets/netflix_background_1.png');
     width: 100%;
-    aspect-ratio: 1440 / 809;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
     img {
-        width: 11.458%;
+        width: 167px;
         position: absolute;
-        top: 3.708%;
-        left: 5.556%;
     }
     section {
-        position: absolute;
-        top: 12.732%;
-        left: 34.722%;
-        width: 30.556%;
-        aspect-ratio: 2 / 3;
-        background-color: rgba(0, 0, 0, 0.75);
-        padding: 13.636% 13.182% 13.636% 15.455%;
         box-sizing: border-box;
-        h3 {
+        background-color: rgba(0, 0, 0, 0.75);
+        h2 {
             color: white;
-            font-size: 3.2rem;
+            font-size: 32px;
             font-weight: 800;
-            line-height: 9rem;
+            line-height: 32px;
+            margin-bottom: 28px
         }
         form {
             input {
+                width: stretch;
+                border: none;
                 background-color: #333333;
                 border-radius: 5px;
-                font-size: 1.6rem;
+                font-size: 16px;
                 color: #8C8C8C;
+            }
+            input.ng-touched.ng-invalid {
+                border-bottom: 3px solid #F28300;
             }
             p {
                 font-weight: 300;
-                font-size: 1.3rem;
-                line-height: 2rem;
+                font-size: 13px;
+                line-height: 20px;
                 color: #F28300;
+                padding: 6px 3px;
                 visibility: hidden;
             }
+            input.ng-touched.ng-invalid + p {
+                visibility: visible;
+            }
             button {
+                width: stretch;
+                height: 50px;
                 background-color: #E50914;
+                border: none;
                 border-radius: 10px;
                 color: white;
-                font-size: 1.6rem;
-                :hover {
-                    background-color: #FD000D;
-                }
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #FD000D;
             }
         }
         > p {
-            font-size: 1.2rem;
-            line-height: 2rem;
+            font-size: 12px;
+            line-height: 20px;
             color: #8C8C8C;
+        }
+        a {
+            color: #0080FF;
+            text-decoration: underline;
+        }
+        p:last-child {
+            margin-top: 15px;
         }
     }
 }
 
 footer {
+    width: 100%;
     background-color: black;
     color: #6F6F6F;
-    letter-spacing: 0.05em;
-    padding: 4.861% 0 4.861% 8.889%;
     box-sizing: border-box;
     h3 {
-        font-size: 2.6rem;
-        line-height: 4.7rem;
-        margin-bottom: 1.389%;
+        font-size: 16px;
     }
     > div {
         display: flex;
         gap: 4.861%;
-        margin-bottom: 3.125%;
+        margin-bottom: 45px;
+        a {
+            display: block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     }
     a, p {
-        font-size: 1.8rem;
-        line-height: 4.5rem;
-        text-decoration: none;
+        font-size: 13px;
+        line-height: 45px;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    main {
+        height: 809px;
+        background-image: url('/assets/netflix_background_1.png');
+        background-size: cover;
+        padding-top: 103px;
+        img {
+            top: 2.508vh;
+            left: 6.689vh;
+        }
+        section {
+            width: 440px;
+            height: 660px;
+            padding: 60px 58px 60px 68px;
+            form {
+                input {
+                    padding: 10px 15px;
+                }
+                button {
+                    margin: 15px 0 40px 0;
+                }
+            }
+        }
+    }
+
+    footer {
+        height: 387px;
+        letter-spacing: 0.05em;
+        padding: 5.853vh 0 5.843vh 8.889%;
+        h3 {
+            line-height: 47px;
+            margin-bottom: 20px;
+        }
+        > div {
+            a {
+                width: max-content;
+            }
+            div:last-child {
+                display: flex;
+                width: max-content;
+                gap: 34.114px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 739.9px) {
+    main {
+        height: 640px;
+        background-color: black;
+        img {
+            top: 0;
+            left: 2.927%;
+        }
+        section {
+            width: 100%;
+            padding: 0 4.865%;
+            margin-top: 110px;
+            form {
+                input {
+                    padding: 16px 20px;
+                }
+                button {
+                    margin: 24px 0 12px 0;
+                }
+            }
+        }
+    }
+    footer {
+        padding: 30px 4.882%;
+        border-top: 1px solid white;
+        h3 {
+            line-height: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        > div {
+            flex-wrap: wrap;
+            a {
+                font-size: 13px;
+                line-height: 13px;
+                margin-bottom: 16px;
+            }
+            div:last-child {
+                display: flex;
+                gap: 4.861%;
+                flex-wrap: wrap;
+            }
+        }
     }
 }
