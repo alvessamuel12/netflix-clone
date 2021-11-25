@@ -6,9 +6,12 @@
 
 html, body {
     height: 100%;
+    font-size: 16px;
 }
 
 body {
     margin: 0;
     min-width: 340px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
 }
