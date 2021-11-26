@@ -12,9 +12,7 @@ export class CardListComponent implements OnInit {
   @Input() isloaded = false
   @Input() data :Array<SeriesData> = []
   @Input() title = ''
-  // @Input() dataKeepWatching :Array<SeriesData> = []
 
-  // @Output() modalData:SeriesData = {}
   @Output() modalData = new EventEmitter<SeriesData>()
   @Output() modal = new EventEmitter<boolean>()
 

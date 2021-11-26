@@ -35,24 +35,28 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
       })
     }
     baseUrl: string = 'https://private-3923c4-santandercoders809.apiary-mock.com/';
-
     getUsers() {
-        return this.http.get(this.baseUrl).pipe(
-            catchError(x => {
-                console.log(x);
-                return of('Ops ... Raça não encontrada.');
-            })
+      return this.http.get(this.baseUrl).pipe(
+        catchError(x => {
+          console.log(x);
+          return of('Ops ... Raça não encontrada.');
+        })
         );
-    }
+      }
 
+      // Post to get users data
     requestLogIn(params: LoginParams) {
         return this.http.post<LoginData>(this.baseUrl + 'login', params)
       }
+      // request array of series
+      getArraySeries(id:string) {
+          return this.http.get(this.baseUrl + `users/` + id)
+      }
 
-      urlSeries = `https://private-3923c4-santandercoders809.apiary-mock.com/series/`
-  getDataSeries(seriesArray:Number[]) {
+      // request series data
+    getDataSeries(seriesArray:Number[]) {
     return seriesArray.map(seriesId => {
-      return this.http.get(this.urlSeries + seriesId)
+      return this.http.get(this.baseUrl + `series/` + seriesId)
     })
   }
 }

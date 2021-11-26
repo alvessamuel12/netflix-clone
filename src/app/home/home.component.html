@@ -12,10 +12,7 @@ currentScreenSize === 'Small' ? {'font-size': '12px'} :
       [ngStyle]="(currentScreenSize === 'Large') ? {'height':'746px'} : (currentScreenSize === 'Medium') ? {'height':'706px'} : (currentScreenSize === 'Small') ? {'height':'702px'} : (currentScreenSize === 'XSmall') ? {'height':'511px'} : {}">
       <div class="home-nav-container">
         <div class="home-nav">
-          <div class="nav-logo">
-            <img src="../../assets/img/netflix-Logo 1.png"
-              [ngStyle]="(currentScreenSize === 'Large') ? {'width':'134px'} :(currentScreenSize === 'Medium') ? {'width':'134px'} : (currentScreenSize === 'Small') ? {'width':'108px'} : (currentScreenSize === 'XSmall') ? {'width':'88px'} : {}">
-          </div>
+          <app-logo ></app-logo>
         </div>
       </div>
 

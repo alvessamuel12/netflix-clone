@@ -16,7 +16,6 @@ export class UsersComponent implements OnInit, DoCheck{
   users : User[] = [];
 
   ngDoCheck(){
-
     this.localLayoutSize = this.appService.layoutSize
   }
 
@@ -27,7 +26,6 @@ export class UsersComponent implements OnInit, DoCheck{
   getDataUser() {
     const userDataJson = localStorage.getItem('users');
     if(userDataJson)this.users = [...JSON.parse(userDataJson)];
-    console.log(this.users);
   }
 
   switchToUser(id : number, name: string) {

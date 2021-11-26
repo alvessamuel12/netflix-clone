@@ -1,8 +1,7 @@
 import { AppService } from './../app.service';
-import { Observable, Subscription, Subject, takeUntil, delay } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Component, OnInit, OnDestroy, DoCheck} from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { SeriesData } from "./series-data";
+import { SeriesData, ArrayData } from "./series-data";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -18,30 +17,25 @@ export class MoviesScreenComponent implements OnInit, OnDestroy, DoCheck {
     private activRoute : ActivatedRoute,
     private appService : AppService
   ){}
+
   background:string = 'assets/img/banner.png'
-  polular = [1,2,3,4,5,6]
-  keepWatching = [7,8]
+  polular:number[] = []
+  keepWatching:number[] = []
   user = {
-    id: 0,
-    name: 'Usuario 1'
+    name: '',
+    id: ''
   }
 
   dataPopular:Array<SeriesData> = []
-  Subscription:Array<Subscription>= []
   dataKeepWatching:Array<SeriesData> = []
-  Subscription1:Array<Subscription>= []
+  isloadedPopular = false
+  isloadedKeep = false
+
   dropdownActive = false
   modalData:SeriesData = {}
   modal = false
-  isloadedPopular = false
-  isloadedKeep = false
   logoInitWidth = '9.70em'
-  slideCard2(element: HTMLElement, direction: number){
-    element.scrollLeft += 300 * direction
-  }
-  isOverflown(element: HTMLElement) {
-    return element.scrollWidth > element.clientWidth;
-  }
+
   showMenuDropdown(){
     this.dropdownActive = !this.dropdownActive
   }
@@ -54,13 +48,8 @@ export class MoviesScreenComponent implements OnInit, OnDestroy, DoCheck {
   teste(){
     console.log('teste')
   }
-  showModal(cardData: SeriesData){
-    this.modalData = {...cardData}
-    this.modal = true
-  }
-
   keepModalOpen(keepOpen:boolean){
-    this.modal = false
+    this.modal = keepOpen
   }
   getModalData(modalData:SeriesData){
     this.modalData = {...modalData}
@@ -70,26 +59,29 @@ export class MoviesScreenComponent implements OnInit, OnDestroy, DoCheck {
   }
   ngOnInit(): void {
     this.activRoute.queryParams.subscribe(({id, name}) => {
-      // this.user = { name, id };
+      this.user.name = name
+      this.user.id = id;
     });
+    this.appService.getArraySeries(this.user.id).subscribe(item => {
+      const data  = item as ArrayData
+      this.polular.push(...data.popular)
+      this.keepWatching.push(...data.keepWatching)
 
-    this.appService.getDataSeries(this.polular).forEach((serie) => {
-      this.Subscription.push(serie.subscribe(item => {
-        const teste = setTimeout(() => {
+      this.appService.getDataSeries(this.polular).forEach((serie) => {
+        serie.subscribe(item => {
           this.dataPopular.push(item as SeriesData)
           this.isloadedPopular = true
-          clearTimeout(teste)
-        }, 4000);
-      }))
-    })
-    this.appService.getDataSeries(this.keepWatching).forEach((serie) => {
-      this.Subscription1.push(serie.subscribe(item => {
-        const teste = setTimeout(() => {
+          // const teste = setTimeout(() => {
+          // }, 4000);
+        })
+      })
+
+      this.appService.getDataSeries(this.keepWatching).forEach((serie) => {
+        serie.subscribe(item => {
           this.dataKeepWatching.push(item as SeriesData)
           this.isloadedKeep = true
-          clearTimeout(teste)
-        }, 2000);
-      }))
+        })
+      })
     })
   }
   ngDoCheck(){
@@ -97,8 +89,6 @@ export class MoviesScreenComponent implements OnInit, OnDestroy, DoCheck {
     this.destroyed = this.appService.destroyed
   }
   ngOnDestroy() {
-    this.Subscription.map(x => x.unsubscribe)
-    this.Subscription1.map(x => x.unsubscribe)
     this.destroyed.next();
     this.destroyed.complete();
   }

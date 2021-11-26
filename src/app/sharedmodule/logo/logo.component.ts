@@ -12,11 +12,9 @@ export class LogoComponent implements OnInit, DoCheck {
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
-    console.log(this.logoInitWidth)
+
   }
   ngDoCheck(){
-    // console.log('ngDoCheck')
-    // console.log(this.appService.layoutSize)
     this.localLayoutSize = this.appService.layoutSize
   }
 
