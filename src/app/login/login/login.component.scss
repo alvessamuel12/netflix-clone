@@ -12,9 +12,11 @@ main {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    img {
-        width: 167px;
+    app-logo  {
+        // width: 167px;
         position: absolute;
+        top: .5vw;
+        left: 2vw
     }
     section {
         box-sizing: border-box;

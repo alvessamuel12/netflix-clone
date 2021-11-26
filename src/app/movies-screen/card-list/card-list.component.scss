@@ -1,0 +1,61 @@
+img{
+  width: 100%;
+  height: auto;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+ h2{
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+.card-box{
+  position: relative;
+
+}
+ button{
+  border: none;
+  position: absolute;
+  top:4vw;
+  background-color: rgba($color: #000000, $alpha: 0);
+  cursor: pointer;
+}
+ button mat-icon{
+  color: #fff;
+  font-size: calc(1em + 1vw);
+  transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button mat-icon:hover{
+  font-size: calc(1.5em + 1vw);
+  transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(-0.5vw);
+}
+
+button:last-child mat-icon:hover{
+  transform: translateX(-0.5vw) translateY(-0.5vw);
+}
+button:last-child{
+  right: 3vw;
+}
+.card-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.card-wrapper{
+  display: flex;
+  width: 95vw;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  gap: 3%;
+  margin-right: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  transition: all 0.5 ease-in-out;
+  scroll-behavior: smooth;
+}
+.card-item{
+  width: calc(5em + 15%);
+  flex-shrink: 0;
+  cursor: pointer;
+}

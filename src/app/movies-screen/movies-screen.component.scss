@@ -43,15 +43,18 @@ nav{
   height: 3em;
   position: relative;
 }
-#logo{
-  width: 9.70em;
-  height: auto;
-  padding-top: 0.4em;
+// #logo{
+//   width: 9.70em;
+//   height: auto;
+//   padding-top: 0.4em;
+//   order: 2;
+// }
+// #logo a{
+//   width: 100%;
+//   height: 100%;
+// }
+app-logo{
   order: 2;
-}
-#logo a{
-  width: 100%;
-  height: 100%;
 }
 button#hamburguer-menu {
   background-color: rgba($color: #000000, $alpha: 0);
@@ -60,11 +63,12 @@ button#hamburguer-menu {
   padding: 0;
   border: none;
 }
+
 #hamburguer-menu mat-icon{
   color: #fff;
   font-size: 2.5em;
   background-color: rgba($color: #000000, $alpha: 0);
-  // width: 2em;
+  transform: translateY(-0.2em);
 }
 nav .navbar-out-dropdown{
   display: flex;
@@ -187,40 +191,40 @@ gap: 2vw;
 .button-wrapper button:last-child:hover{
   background-color: rgba(255, 255, 255, 0.19);
 }
-.popular{
+.cardlist{
   margin-top: 4vw;
 }
-.popular h2{
+.cardlist h2{
   font-size: 1.5em;
   margin-bottom: 1em;
 }
-.popular .card-box{
+.cardlist .card-box{
   position: relative;
 
 }
-.popular button{
+.cardlist button{
   border: none;
   position: absolute;
   top:4vw;
   background-color: rgba($color: #000000, $alpha: 0);
   cursor: pointer;
 }
-.popular button mat-icon{
+.cardlist button mat-icon{
   color: #fff;
   font-size: calc(1em + 1vw);
   transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.popular button mat-icon:hover{
+.cardlist button mat-icon:hover{
   font-size: calc(1.5em + 1vw);
   transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
   transform: translateY(-0.5vw);
 }
 
-.popular button:last-child mat-icon:hover{
+.cardlist button:last-child mat-icon:hover{
   transform: translateX(-0.5vw) translateY(-0.5vw);
 }
-.popular button:last-child{
+.cardlist button:last-child{
   right: 3vw;
 }
 .card-wrapper::-webkit-scrollbar {

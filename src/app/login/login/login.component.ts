@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   recaptchaHidden = true
+  logoInitWidth = ''
   dataForm = this.fb.group({
     login: ['', [Validators.required, this.createEmailOrPhoneValidator()]],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]]

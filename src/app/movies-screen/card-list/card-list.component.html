@@ -1,0 +1,17 @@
+<div>
+  <h2>{{title}}</h2>
+  <div class="card-box">
+    <button *ngIf="isOverflown(cards)" (click)="slideCard2(cards, -1)"  mat-button>
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <ul class="card-wrapper" #cards>
+      <li class="card-item" (click)="showModal(serie)" *ngFor="let serie of data" >
+          <img  src="{{serie.cardImage}}">
+      </li>
+    </ul>
+    <button *ngIf="isOverflown(cards)" mat-button (click)="slideCard2(cards, 1)">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+</div>
+
