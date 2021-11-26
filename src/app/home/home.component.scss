@@ -135,7 +135,7 @@
 }
 
 .card-subtitle {
-  font-size: 2em;
+  font-size: 1.7em;
   color: white;
   font-weight: 400;
   margin: 0;
@@ -145,8 +145,6 @@
   margin-bottom: 16px;
   text-align: center;
 }
-
-
 
 .footer-card-description {
   align-self: center;
@@ -160,11 +158,13 @@
   font-weight: 400;
   margin-bottom: 30px;
 }
+
 .footer-title a:hover{
   cursor: pointer;
   text-decoration: underline;
   color: #757575;
 }
+
 .footer-ul {
   list-style-type: none;
   padding: 0;
