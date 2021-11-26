@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class UsersComponent implements OnInit, DoCheck{
 
-  constructor(private appService: AppService, private router: Router) {  }
+  constructor(private appService: AppService, private router: Router) {}
  localLayoutSize = ''
  logoInitWidth = '10.31em'
   users : User[] = [];

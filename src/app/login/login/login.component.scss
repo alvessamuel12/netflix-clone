@@ -15,8 +15,6 @@ main {
     app-logo  {
         width: 167px;
         position: absolute;
-        // top: .5vw;
-        // left: 2vw
     }
     section {
         box-sizing: border-box;
@@ -109,7 +107,7 @@ footer {
 @media screen and (min-width: 740px) {
     main {
         height: 809px;
-        background-image: url('/assets/netflix_background_1.png');
+        background-image: url('/assets/img/netflix_background 1.png');
         background-size: cover;
         padding-top: 103px;
         app-logo {

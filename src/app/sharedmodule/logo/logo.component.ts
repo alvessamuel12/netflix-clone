@@ -12,7 +12,10 @@ export class LogoComponent implements OnInit, DoCheck {
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc116ff7b1a51cdf1950c56f9ac5058c485fba9f
   }
   ngDoCheck(){
     this.localLayoutSize = this.appService.layoutSize
