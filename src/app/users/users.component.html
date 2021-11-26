@@ -1,14 +1,20 @@
-<img src="../assets/img/netflix-Logo 1.png" alt="Netflix logo" srcset="">
 
-<div>
-  <h2>Quem está assistindo?</h2>
+<section>
 
-  <ul>
-    <li *ngFor="let user of users">
-      <label for="">{{user.name}}</label>
-      <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
-    </li>
-  </ul>
+  <img src="../assets/img/netflix-Logo 1.png" alt="Netflix logo" srcset="">
 
-  <button type="button">Gerenciar Perfis</button>
-</div>
+  <div class="users-wrapper">
+    <h2>Quem está assistindo?</h2>
+
+    <ul>
+      <li *ngFor="let user of users">
+        <h3 for="">{{user.name}}</h3>
+        <div>
+          <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
+        </div>
+      </li>
+    </ul>
+
+    <button type="button">Gerenciar Perfis</button>
+  </div>
+</section>

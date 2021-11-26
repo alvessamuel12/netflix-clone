@@ -53,6 +53,8 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   dropdownActive = false
   modalData:SeriesData = {}
   modal = false
+  isloadedPopular = false
+  isloadedKeep = false
   slideCard2(element: HTMLElement, direction: number){
     element.scrollLeft += 300 * direction
   }
@@ -74,7 +76,6 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   showModal(cardData: SeriesData){
     this.modalData = {...cardData}
     this.modal = true
-
   }
   keepModalOpen(keepOpen:boolean){
     this.modal = false
@@ -82,12 +83,20 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
       this.Subscription.push(serie.subscribe(item => {
-        this.dataPopular.push(item as SeriesData)
+        const teste = setTimeout(() => {
+          this.dataPopular.push(item as SeriesData)
+          this.isloadedPopular = true
+          clearTimeout(teste)
+        }, 4000);
       }))
     })
     this.moviesScreenService.getDataSeries(this.keepWatching).forEach((serie) => {
       this.Subscription1.push(serie.subscribe(item => {
-        this.dataKeepWatching.push(item as SeriesData)
+        const teste = setTimeout(() => {
+          this.dataKeepWatching.push(item as SeriesData)
+          this.isloadedKeep = true
+          clearTimeout(teste)
+        }, 2000);
       }))
     })
     console.log(this.dataPopular)

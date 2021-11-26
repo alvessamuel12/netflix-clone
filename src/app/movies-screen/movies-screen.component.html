@@ -64,14 +64,14 @@
         </button>
       </div>
     </div>
-      <div class="popular">
+      <div class="popular"  *ngIf="isloadedPopular else spinner">
         <h2>Populares na Netflix</h2>
         <div class="card-box">
           <button (click)="slideCard2(cardsPopular, -1)"  mat-button>
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
           <ul class="card-wrapper" #cardsPopular>
-            <li class="card-item" (click)="showModal(serie)" *ngFor="let serie of dataPopular; let i = index" >
+            <li class="card-item" (click)="showModal(serie)" *ngFor="let serie of dataPopular" >
                 <img  src="{{serie.cardImage}}">
             </li>
           </ul>
@@ -80,7 +80,7 @@
           </button>
         </div>
       </div>
-      <div class="popular">
+      <div class="popular"  *ngIf="isloadedKeep else spinner">
         <h2>Continue assistindo como {{user.name}}</h2>
         <div class="card-box">
           <button *ngIf="isOverflown(cardsKeepWatching)" (click)="slideCard2(cardsKeepWatching, -1)" mat-button>
@@ -96,6 +96,8 @@
           </button>
         </div>
       </div>
+      <ng-template #spinner> <app-loading></app-loading></ng-template>
+
     </div>
   </article>
     <app-card-modal (keepModalOpen)="keepModalOpen($event)" *ngIf="modal" [modalData]="modalData"></app-card-modal>

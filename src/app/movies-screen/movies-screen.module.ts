@@ -7,6 +7,9 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { CardModalComponent } from './card-modal/card-modal.component';
 import { MyTimePipe } from './my-tyme.pipe';
 import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SharedmoduleModule } from '../sharedmodule/sharedmodule.module';
+
 @NgModule({
   declarations: [
     MoviesScreenComponent,
@@ -18,7 +21,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     HttpClientModule,
     LayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    SharedmoduleModule
   ],
   exports: [
     MoviesScreenComponent

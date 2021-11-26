@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersComponent } from './users.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
 @NgModule({
   declarations: [
-    UsersComponent
+    LoadingComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [
-    UsersComponent,
+  exports:[
+    LoadingComponent
   ]
 })
-export class UsersModule { }
+export class SharedmoduleModule { }
