@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { AppService } from '../../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]]
   })
 
-  constructor(private fb: FormBuilder, private appService: AppService) { }
+  constructor(private fb: FormBuilder, private appService: AppService, private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -35,13 +36,15 @@ export class LoginComponent implements OnInit {
     this.recaptchaHidden = false
   }
 
-  // Request the user data from the API if the form is valid
+  // Request the user data from the API if the form is valid. If the login is sucessfull, it saves the token and users data in the localStorage. After that, the application goes to the users page
   performLogin() {
     if (this.dataForm.status === 'VALID') {
-      this.appService.postUserData(this.dataForm.value).subscribe((response) => {
-        console.log(response)
+      this.appService.postUserData(this.dataForm.value).subscribe(({token, users}) => {
+        localStorage.setItem('token', token)
+        localStorage.setItem('users', JSON.stringify(users))
+        this.dataForm.reset()
+        this.router.navigate(['users'])
       })
-      this.dataForm.reset()
     }
   }
 
