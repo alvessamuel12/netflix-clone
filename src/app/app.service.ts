@@ -58,10 +58,10 @@ export interface User {
     id: number,
     name: string,
     avatarUrl: string
-  }
+}
 
-  interface LoginData {
+interface LoginData {
     token: string,
     users: User[]
-  }
+}
 

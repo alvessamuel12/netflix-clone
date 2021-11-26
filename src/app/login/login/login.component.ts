@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { AppService } from '../../app.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   recaptchaHidden = true
   logoInitWidth = '167px'
   dataForm = this.fb.group({
@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   })
 
   constructor(private fb: FormBuilder, private appService: AppService, private router: Router) { }
-
-  ngOnInit(): void {}
 
   // Return a custom validator function that is used to check if the value inserted by the user follows an email or phone number pattern.
   createEmailOrPhoneValidator(): ValidatorFn {
