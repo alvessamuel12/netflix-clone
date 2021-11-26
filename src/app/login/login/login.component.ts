@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', token)
         localStorage.setItem('users', JSON.stringify(users))
         this.dataForm.reset()
-        this.router.navigate(['users'])
+        this.router.navigate(['profiles'])
       })
     }
   }
