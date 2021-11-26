@@ -1,12 +1,14 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module'
 import { MoviesScreenModule } from './movies-screen/movies-screen.module';
+
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { MoviesScreenModule } from './movies-screen/movies-screen.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     LoginModule,
-    MoviesScreenModule
+    MoviesScreenModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

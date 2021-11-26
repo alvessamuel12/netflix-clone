@@ -1,0 +1,31 @@
+* {
+    padding: 1rem 0 0 2rem;
+    color: white;
+}
+
+ul {
+    border: solid white 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    // border: solid white 2px;
+    display: flex;
+    flex-direction: column-reverse;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    // margin: 1rem;
+    margin-left: -1rem;
+    padding-right: 3.5rem;
+}
+
+div {
+    border: solid white 2px;
+    display: block;
+    justify-items: center;
+    align-items: center;
+}
