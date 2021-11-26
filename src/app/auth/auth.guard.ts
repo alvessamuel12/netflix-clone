@@ -9,6 +9,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
+  // Guard used to check if the user is logged in. To access the profiles or browse pages, he must be logged in, otherwise he is redirected to the login page. To access the root or login pages, he must be logged out, otherwise he is redicted to the profiles page.
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -17,13 +18,7 @@ export class AuthGuard implements CanActivate {
         if (isAuth) return this.router.parseUrl('/profiles')
         return true
       }
-      if (state.url === '/browse' && isAuth) {
-        const hasUserIdAndName = Boolean(route.queryParams['id'] && route.queryParams['name'])
-        if (hasUserIdAndName) return true
-        return this.router.parseUrl('/profiles')
-      }
       if (isAuth) return true
       return this.router.parseUrl('/login')
-  }
-  
+    }
 }
