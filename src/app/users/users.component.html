@@ -1,20 +1,15 @@
 <section>
-
-  <!-- <img src="../assets/img/netflix-Logo 1.png" alt="Netflix logo" srcset=""> -->
-  <app-logo [logoInitWidth]='logoInitWidth'></app-logo>
-
+  <div>
+    <app-logo [logoInitWidth]='logoInitWidth'></app-logo>
+  </div>
   <div class="users-wrapper">
     <h2>Quem está assistindo?</h2>
-
     <ul>
       <li *ngFor="let user of users" (click)="switchToUser(user.id, user.name)">
-        <h3 for="">{{user.name}}</h3>
-        <div>
-          <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
-        </div>
+        <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
+        <h3>{{user.name}}</h3>
       </li>
     </ul>
-
     <button type="button">Gerenciar Perfis</button>
   </div>
 </section>
