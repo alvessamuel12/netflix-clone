@@ -2,10 +2,6 @@ import { Injectable  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
 
-// export interface DogResponse {
-//     message: string[];
-//     status: string;
-// }
 
 @Injectable({
     providedIn: 'root',
@@ -33,14 +29,15 @@ interface LoginParams {
   login: string,
   password: string
 }
+
+export interface User {
+    id: number,
+    name: string,
+    avatarUrl: string
+  }
   
-interface User {
-  id: number,
-  name: string,
-  avatarUrl: string
-}
-  
-interface LoginData {
-  token: string,
-  users: User[]
-}
+  interface LoginData {
+    token: string,
+    users: User[]
+  }
+

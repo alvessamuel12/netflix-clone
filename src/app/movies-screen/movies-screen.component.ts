@@ -3,6 +3,7 @@ import { MoviesScreenService } from './movies-screen.service';
 import { Component, OnInit, OnDestroy, OnChanges} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SeriesData } from "./series-data";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-movies-screen',
@@ -22,7 +23,8 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   constructor
   (
     private moviesScreenService:MoviesScreenService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private activRoute : ActivatedRoute
   ) {
     breakpointObserver
     .observe([
@@ -43,8 +45,10 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   polular = [1,2,3,4,5,6]
   keepWatching = [7,8]
   user = {
-    name: 'Usuário1'
+    id: 0,
+    name: ''
   }
+
   dataPopular:Array<SeriesData> = []
   Subscription:Array<Subscription>= []
   dataKeepWatching:Array<SeriesData> = []
@@ -76,10 +80,16 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
     this.modal = true
 
   }
+
   keepModalOpen(keepOpen:boolean){
     this.modal = false
   }
+
   ngOnInit(): void {
+    this.activRoute.queryParams.subscribe(({id, name}) => {
+      this.user = { name, id };
+    });
+    
     this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
       this.Subscription.push(serie.subscribe(item => {
         this.dataPopular.push(item as SeriesData)
