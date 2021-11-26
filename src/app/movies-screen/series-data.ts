@@ -12,3 +12,8 @@ export interface SeriesData {
   titleImage?: string
   year?:number
 }
+
+export interface ArrayData{
+  popular:number[]
+  keepWatching:number[]
+}

@@ -16,7 +16,6 @@ export class UsersComponent implements OnInit, DoCheck{
   users : User[] = [];
 
   ngDoCheck(){
-
     this.localLayoutSize = this.appService.layoutSize
   }
 
