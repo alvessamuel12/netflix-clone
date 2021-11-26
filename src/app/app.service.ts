@@ -25,15 +25,8 @@ import { catchError, of } from 'rxjs';
         );
     }
 
-    postUserData({login, password}: LoginParams) {
-        const headers = new HttpHeaders({ContentType: 'text/plain'})
-        // headers.append('responseType', 'text')
-        // console.log(headers)
-        // console.log(headers)
-        // const params = 'text=' + JSON.stringify(loginParams)
-        // const u = JSON.stringify(params)
-
-        return this.http.post(this.baseUrl + 'login', {login, password}, {responseType: 'text'})
+    postUserData(params: LoginParams) {
+        return this.http.post(this.baseUrl + 'login', params)
       }
 }
 
