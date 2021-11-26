@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
-
-
-interface User {
-  "id" : 0,
-  "name" : '',
-  "avatarUrl" : ''
-}
+import { AppService, User } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -16,7 +10,7 @@ interface User {
 
 export class UsersComponent implements OnInit {
 
-  constructor(private appService: AppService) {  }
+  constructor(private appService: AppService, private router: Router) {  }
 
   users : User[] = [];
   reponse = {
@@ -45,6 +39,10 @@ export class UsersComponent implements OnInit {
       this.users = this.reponse.users as User[];
     });
     if(this.users[0]) { console.log(this.users[0]); }
+  }
+
+  switchToUser(id : number, name: string) {
+    this.router.navigate(['/browse'], { queryParams: { id: id, name: name } });
   }
 
 }

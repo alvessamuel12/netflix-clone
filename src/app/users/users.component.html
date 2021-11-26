@@ -4,7 +4,7 @@
   <h2>Quem está assistindo?</h2>
 
   <ul>
-    <li *ngFor="let user of users">
+    <li (click)="switchToUser(user.id, user.name)" *ngFor="let user of users">
       <label for="">{{user.name}}</label>
       <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
     </li>

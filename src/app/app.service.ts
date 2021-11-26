@@ -2,10 +2,6 @@ import { Injectable  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
 
-// export interface DogResponse {
-//     message: string[];
-//     status: string;
-// }
 
 @Injectable({
     providedIn: 'root',
@@ -13,18 +9,36 @@ import { catchError, of } from 'rxjs';
   export class AppService {
     constructor(private http: HttpClient) {}
         
-    usersUrl: string = 'https://private-3923c4-santandercoders809.apiary-mock.com/';
-    
+    baseUrl: string = 'https://private-3923c4-santandercoders809.apiary-mock.com/';
+    usersData!: User[]
 
     getUsers() {
-        let url:string = this.usersUrl;
-        // console.log(url);
-        return this.http.get(url).pipe(
+        return this.http.get(this.baseUrl).pipe(
             catchError(x => {
                 console.log(x);
                 return of('Ops ... Raça não encontrada.');
             })
         );
     }
+
+    postUserData(params: LoginParams) {
+        return this.http.post<LoginData>(this.baseUrl + 'login', params);
+    }
 }
+
+interface LoginParams {
+    login: string,
+    password: string
+  }
+  
+export interface User {
+    id: number,
+    name: string,
+    avatarUrl: string
+  }
+  
+  interface LoginData {
+    token: string,
+    users: User[]
+  }
 
