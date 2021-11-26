@@ -1,26 +1,25 @@
 <section id="movies-screen"
-[ngStyle]="layoutSize === 'XSmall' || layoutSize === 'Small' ? {'font-size': '8px'}
+[ngStyle]="localLayoutSize === 'XSmall' || localLayoutSize === 'Small' ? {'font-size': '8px'}
 :
-(layoutSize === 'Medium' ? {'font-size': '12px'}
+(localLayoutSize === 'Medium' ? {'font-size': '12px'}
 :
 {'font-size': '16px'})">
   <article
     class="featured-movie"
-    [ngStyle]="layoutSize !== 'XSmall' ? {
+    [ngStyle]="localLayoutSize !== 'XSmall' ? {
       'background-image': 'url(' + background + ')'
     } : {} "
     >
     <div class="container" #algo>
       <nav>
+        <app-logo  [logoInitWidth]='logoInitWidth'></app-logo>
 
-        <app-logo [logoInitWidth]='logoInitWidth'></app-logo>
-
-          <button *ngIf="layoutSize === 'XSmall'" #HamburguerMenu (click)="showMenuDropdown()" (blur)="closeMenuDropdown()" id="hamburguer-menu" mat-button>
+          <button *ngIf="localLayoutSize === 'XSmall'" #HamburguerMenu (click)="showMenuDropdown()" (blur)="closeMenuDropdown()" id="hamburguer-menu" mat-button>
             <mat-icon>menu</mat-icon>
           </button>
 
-          <ul [ngClass]="layoutSize === 'XSmall' ?'navbar-in-dropdown' : 'navbar-out-dropdown'"  #dropdownMenu
-          *ngIf="layoutSize !== 'XSmall' || dropdownActive"
+          <ul [ngClass]="localLayoutSize === 'XSmall' ?'navbar-in-dropdown' : 'navbar-out-dropdown'"  #dropdownMenu
+          *ngIf="localLayoutSize !== 'XSmall' || dropdownActive"
           >
             <li><a class="active" href="#">Início</a></li>
             <li (click)="teste()"><a href="#">Séries</a></li>
@@ -30,7 +29,7 @@
           </ul>
         </nav>
 
-    <div *ngIf="layoutSize !== 'XSmall'">
+    <div *ngIf="localLayoutSize !== 'XSmall'">
       <div class="featured-movie-title">
         <img
           src="assets/img/titulo-banner1.png"
@@ -48,7 +47,7 @@
         <p>
           Um agente do FBI persegue o ladrão de arte mais procurado do mundo.
           Ele só não esperava ter seu alvo como parceiro para prender uma
-          bandida muito esperta.{{layoutSize}}
+          bandida muito esperta.{{localLayoutSize}}
         </p>
       </div>
       <div class="button-wrapper">
@@ -62,22 +61,6 @@
         </button>
       </div>
     </div>
-      <!-- <div class="cardlist"  *ngIf="isloadedPopular else spinner">
-        <h2>Populares na Netflix</h2>
-        <div class="card-box">
-          <button (click)="slideCard2(cardsPopular, -1)"  mat-button>
-            <mat-icon>arrow_back_ios</mat-icon>
-          </button>
-          <ul class="card-wrapper" #cardsPopular>
-            <li class="card-item" (click)="showModal(serie)" *ngFor="let serie of dataPopular" >
-                <img  src="{{serie.cardImage}}">
-            </li>
-          </ul>
-          <button mat-button (click)="slideCard2(cardsPopular, 1)">
-            <mat-icon>arrow_forward_ios</mat-icon>
-          </button>
-        </div>
-      </div> -->
       <app-card-list
       class="cardlist"  *ngIf="isloadedPopular else spinner"
       [title]='"Populares na Netflix"'
@@ -92,22 +75,6 @@
       (modalData)='getModalData($event)'
       (modal)='getmodal($event)'
       ></app-card-list>
-      <!-- <div class="cardlist"  *ngIf="isloadedKeep else spinner">
-        <h2>Continue assitindo como {{user.name}}</h2>
-        <div class="card-box">
-          <button *ngIf="isOverflown(cardsKeepWatching)" (click)="slideCard2(cardsKeepWatching, -1)" mat-button>
-            <mat-icon>arrow_back_ios</mat-icon>
-          </button>
-          <ul class="card-wrapper" #cardsKeepWatching>
-            <li class="card-item" *ngFor="let serie of dataKeepWatching; let i = index">
-                <img  src="{{serie.cardImage}}">
-            </li>
-          </ul>
-          <button *ngIf="isOverflown(cardsKeepWatching)" mat-button (click)="slideCard2(cardsKeepWatching, 1) ">
-            <mat-icon>arrow_forward_ios</mat-icon>
-          </button>
-        </div>
-      </div> -->
       <ng-template #spinner> <app-loading></app-loading></ng-template>
 
     </div>

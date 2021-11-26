@@ -1,6 +1,6 @@
 import { Injectable  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, takeUntil, Subject } from 'rxjs';
+import { catchError, of, takeUntil, Subject, Subscription } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 
@@ -10,13 +10,14 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   export class AppService {
     destroyed = new Subject<void>()
     layoutSize = ''
+    Subscription1:Array<Subscription>= []
     displayNameMap = new Map([
       [Breakpoints.XSmall, 'XSmall'],
       [Breakpoints.Small, 'Small'],
       [Breakpoints.Medium, 'Medium'],
       [Breakpoints.Large, 'Large'],
     ]);
-    constructor(private http: HttpClient, private breakpointObserver: BreakpointObserver,)
+    constructor(private http: HttpClient, private breakpointObserver: BreakpointObserver)
  {
       breakpointObserver
       .observe([
@@ -47,6 +48,13 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
     postUserData(params: LoginParams) {
         return this.http.post<LoginData>(this.baseUrl + 'login', params)
       }
+
+      urlSeries = `https://private-3923c4-santandercoders809.apiary-mock.com/series/`
+  getDataSeries(seriesArray:Number[]) {
+    return seriesArray.map(seriesId => {
+      return this.http.get(this.urlSeries + seriesId)
+    })
+  }
 }
 
 interface LoginParams {

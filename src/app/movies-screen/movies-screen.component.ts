@@ -1,6 +1,6 @@
+import { AppService } from './../app.service';
 import { Observable, Subscription, Subject, takeUntil, delay } from 'rxjs';
-import { MoviesScreenService } from './movies-screen.service';
-import { Component, OnInit, OnDestroy, OnChanges} from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SeriesData } from "./series-data";
 import { ActivatedRoute } from "@angular/router";
@@ -10,37 +10,14 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: './movies-screen.component.html',
   styleUrls: ['./movies-screen.component.scss']
 })
-export class MoviesScreenComponent implements OnInit, OnDestroy {
+export class MoviesScreenComponent implements OnInit, OnDestroy, DoCheck {
   destroyed = new Subject<void>()
-  layoutSize = ''
-
-  displayNameMap = new Map([
-    [Breakpoints.XSmall, 'XSmall'],
-    [Breakpoints.Small, 'Small'],
-    [Breakpoints.Medium, 'Medium'],
-    [Breakpoints.Large, 'Large'],
-  ]);
+  localLayoutSize = ''
   constructor
   (
-    private moviesScreenService:MoviesScreenService,
-    private breakpointObserver: BreakpointObserver,
-    private activRoute : ActivatedRoute
-  ) {
-    breakpointObserver
-    .observe([
-      Breakpoints.XSmall,
-      Breakpoints.Small,
-      Breakpoints.Medium,
-      Breakpoints.Large,
-    ]).pipe(takeUntil(this.destroyed))
-    .subscribe(result => {
-      Object.keys(result.breakpoints).forEach(element => {
-        if (result.breakpoints[element]){
-          this.layoutSize = this.displayNameMap.get(element) ?? 'Unknown';
-        }
-      });
-    })
-  }
+    private activRoute : ActivatedRoute,
+    private appService : AppService
+  ){}
   background:string = 'assets/img/banner.png'
   polular = [1,2,3,4,5,6]
   keepWatching = [7,8]
@@ -53,14 +30,12 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   Subscription:Array<Subscription>= []
   dataKeepWatching:Array<SeriesData> = []
   Subscription1:Array<Subscription>= []
-  sliderPossibility = false
   dropdownActive = false
   modalData:SeriesData = {}
   modal = false
   isloadedPopular = false
   isloadedKeep = false
   logoInitWidth = '9.70em'
-  // title = ['Populares na Netflix','Continue assistindo como' + this.user.name]
   slideCard2(element: HTMLElement, direction: number){
     element.scrollLeft += 300 * direction
   }
@@ -98,7 +73,7 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
       // this.user = { name, id };
     });
 
-    this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
+    this.appService.getDataSeries(this.polular).forEach((serie) => {
       this.Subscription.push(serie.subscribe(item => {
         const teste = setTimeout(() => {
           this.dataPopular.push(item as SeriesData)
@@ -107,7 +82,7 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
         }, 4000);
       }))
     })
-    this.moviesScreenService.getDataSeries(this.keepWatching).forEach((serie) => {
+    this.appService.getDataSeries(this.keepWatching).forEach((serie) => {
       this.Subscription1.push(serie.subscribe(item => {
         const teste = setTimeout(() => {
           this.dataKeepWatching.push(item as SeriesData)
@@ -116,10 +91,14 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
         }, 2000);
       }))
     })
-
+  }
+  ngDoCheck(){
+    this.localLayoutSize = this.appService.layoutSize
+    this.destroyed = this.appService.destroyed
   }
   ngOnDestroy() {
     this.Subscription.map(x => x.unsubscribe)
+    this.Subscription1.map(x => x.unsubscribe)
     this.destroyed.next();
     this.destroyed.complete();
   }
