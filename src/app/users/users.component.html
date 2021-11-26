@@ -2,11 +2,13 @@
 
 <div>
   <h2>Quem está assistindo?</h2>
-</div>
 
-<ul>
-  <li *ngFor="let user of users">
-    <label for="">{{user.name}}</label>
-    <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
-  </li>
-</ul>
+  <ul>
+    <li *ngFor="let user of users">
+      <label for="">{{user.name}}</label>
+      <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
+    </li>
+  </ul>
+
+  <button type="button">Gerenciar Perfis</button>
+</div>
