@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { LoginService } from '../login.service';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]]
   })
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(private fb: FormBuilder, private appService: AppService) { }
 
   ngOnInit(): void {}
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   // Request the user data from the API if the form is valid
   performLogin() {
     if (this.dataForm.status === 'VALID') {
-      this.loginService.getUserData(this.dataForm.value).subscribe((response) => {
+      this.appService.postUserData(this.dataForm.value).subscribe((response) => {
         console.log(response)
       })
       this.dataForm.reset()
