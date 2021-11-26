@@ -13,9 +13,6 @@
     <div class="container" #algo>
       <nav>
 
-        <!-- <div id="logo">
-          <a href=""><img src="assets/img/logo.png" alt="Logo" /></a>
-        </div> -->
         <app-logo [logoInitWidth]='logoInitWidth'></app-logo>
 
           <button *ngIf="layoutSize === 'XSmall'" #HamburguerMenu (click)="showMenuDropdown()" (blur)="closeMenuDropdown()" id="hamburguer-menu" mat-button>
