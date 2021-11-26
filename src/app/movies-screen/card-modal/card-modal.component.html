@@ -1,0 +1,36 @@
+<div class='container' (click)="closeModal($event)">
+  <section class="modal" #modalArea>
+    <article class="top-area"  [ngStyle]="{'background-image': 'url(' + getUrl() + ')'}">
+      <button class="close">
+        <mat-icon class='close-icon'>close</mat-icon>
+      </button>
+      <img [src]="modalData.titleImage">
+      <button class="assitir">
+        <mat-icon>play_arrow</mat-icon>
+        <span>Assistir</span>
+      </button>
+    </article>
+    <article class="bottom-area">
+      <div class="left-panel">
+        <div>
+          <span *ngIf="modalData.relevance" class="relevance">{{modalData.relevance}}% relevante </span>
+          <span *ngIf="modalData.year" class="year">{{modalData.year}}</span>
+          <div *ngIf="modalData.minAge" class="min-age"><span>{{modalData.minAge}}</span></div>
+          <span *ngIf="modalData.time" class="time">{{modalData.time | myTime }} </span>
+        </div>
+        <p class="description">{{modalData.description}}</p>
+      </div>
+      <div class="right-panel">
+        <div>
+          <p><span>Elenco: </span>{{cast}}</p>
+        </div>
+        <div>
+          <p><span>Gêneros: </span>{{genre}}</p>
+        </div>
+        <div>
+          <p><span>Cenas e momentos: </span>{{scenes}}</p>
+        </div>
+      </div>
+    </article>
+  </section>
+</div>

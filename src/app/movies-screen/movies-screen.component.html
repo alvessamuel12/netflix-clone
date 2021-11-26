@@ -6,24 +6,33 @@
 {'font-size': '16px'})">
   <article
     class="featured-movie"
-    [ngStyle]="{
+    [ngStyle]="layoutSize !== 'XSmall' ? {
       'background-image': 'url(' + background + ')'
-    }"
-  >
-    <div class="container">
-    <div>
+    } : {} "
+    >
+    <div class="container" #algo>
       <nav>
+
         <div id="logo">
           <a href=""><img src="assets/img/logo.png" alt="Logo" /></a>
         </div>
-        <ul class="navbar">
-          <li><a class="active" href="#">Início</a></li>
-          <li><a href="#">Séries</a></li>
-          <li><a href="#">Filmes</a></li>
-          <li><a href="#">Bombando</a></li>
-          <li><a href="#">Minha lista</a></li>
-        </ul>
-      </nav>
+
+          <button *ngIf="layoutSize === 'XSmall'" #HamburguerMenu (click)="showMenuDropdown()" (blur)="closeMenuDropdown()" id="hamburguer-menu" mat-button>
+            <mat-icon>menu</mat-icon>
+          </button>
+
+          <ul [ngClass]="layoutSize === 'XSmall' ?'navbar-in-dropdown' : 'navbar-out-dropdown'"  #dropdownMenu
+          *ngIf="layoutSize !== 'XSmall' || dropdownActive"
+          >
+            <li><a class="active" href="#">Início</a></li>
+            <li (click)="teste()"><a href="#">Séries</a></li>
+            <li><a href="#">Filmes</a></li>
+            <li><a href="#">Bombando</a></li>
+            <li><a href="#">Minha lista</a></li>
+          </ul>
+        </nav>
+
+    <div *ngIf="layoutSize !== 'XSmall'">
       <div class="featured-movie-title">
         <img
           src="assets/img/titulo-banner1.png"
@@ -45,24 +54,24 @@
         </p>
       </div>
       <div class="button-wrapper">
-        <button mat-stroked-button>
+        <button>
           <mat-icon>play_arrow</mat-icon>
           <span>Assistir</span>
         </button>
-        <button mat-stroked-button>
+        <button>
           <mat-icon>info_outline</mat-icon>
           <span>Mais unformações</span>
         </button>
       </div>
     </div>
       <div class="popular">
-        <h2>Populares na Netflix{{layoutSize}}</h2>
+        <h2>Populares na Netflix</h2>
         <div class="card-box">
           <button (click)="slideCard2(cardsPopular, -1)"  mat-button>
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
           <ul class="card-wrapper" #cardsPopular>
-            <li class="card-item" *ngFor="let serie of dataPopular; let i = index" >
+            <li class="card-item" (click)="showModal(serie)" *ngFor="let serie of dataPopular; let i = index" >
                 <img  src="{{serie.cardImage}}">
             </li>
           </ul>
@@ -74,7 +83,7 @@
       <div class="popular">
         <h2>Continue assistindo como {{user.name}}</h2>
         <div class="card-box">
-          <button (click)="slideCard2(cardsKeepWatching, -1)" mat-button>
+          <button *ngIf="isOverflown(cardsKeepWatching)" (click)="slideCard2(cardsKeepWatching, -1)" mat-button>
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
           <ul class="card-wrapper" #cardsKeepWatching>
@@ -82,11 +91,13 @@
                 <img  src="{{serie.cardImage}}">
             </li>
           </ul>
-          <button mat-button (click)="slideCard2(cardsKeepWatching, 1) ">
+          <button *ngIf="isOverflown(cardsKeepWatching)" mat-button (click)="slideCard2(cardsKeepWatching, 1) ">
             <mat-icon>arrow_forward_ios</mat-icon>
           </button>
         </div>
       </div>
     </div>
   </article>
+    <app-card-modal (keepModalOpen)="keepModalOpen($event)" *ngIf="modal" [modalData]="modalData"></app-card-modal>
+
 </section>
