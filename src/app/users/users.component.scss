@@ -3,8 +3,11 @@
     color: white;
 }
 
+* {
+    background-color: black;
+}
+
 ul {
-    border: solid white 2px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,7 +15,7 @@ ul {
 }
 
 li {
-    // border: solid white 2px;
+    
     display: flex;
     flex-direction: column-reverse;
     list-style: none;
@@ -24,8 +27,13 @@ li {
 }
 
 div {
-    border: solid white 2px;
     display: block;
     justify-items: center;
     align-items: center;
+}
+
+button {
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
 }
