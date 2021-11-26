@@ -13,10 +13,10 @@ main {
     justify-content: center;
     box-sizing: border-box;
     app-logo  {
-        // width: 167px;
+        width: 167px;
         position: absolute;
-        top: .5vw;
-        left: 2vw
+        // top: .5vw;
+        // left: 2vw
     }
     section {
         box-sizing: border-box;
@@ -112,7 +112,7 @@ footer {
         background-image: url('/assets/netflix_background_1.png');
         background-size: cover;
         padding-top: 103px;
-        img {
+        app-logo {
             top: 2.508vh;
             left: 6.689vh;
         }
@@ -156,7 +156,7 @@ footer {
     main {
         height: 640px;
         background-color: black;
-        img {
+        app-logo {
             top: 0;
             left: 2.927%;
         }
