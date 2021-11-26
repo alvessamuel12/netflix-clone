@@ -2,21 +2,7 @@ import { Observable, Subscription, Subject, takeUntil, delay } from 'rxjs';
 import { MoviesScreenService } from './movies-screen.service';
 import { Component, OnInit, OnDestroy, OnChanges} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
-interface SeriesData {
-  backgroundImage: String
-  cardImage: String
-  cast: String[]
-  description:String
-  genre: String[]
-  minAge: null | Number
-  relevance: null | Number
-  scenes: String[]
-  season: null | Number
-  time: null | Number
-  titleImage: String
-  year:Number
-}
+import { SeriesData } from "./series-data";
 
 @Component({
   selector: 'app-movies-screen',
@@ -65,6 +51,8 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   Subscription1:Array<Subscription>= []
   sliderPossibility = false
   dropdownActive = false
+  modalData:SeriesData = {}
+  modal = false
   slideCard2(element: HTMLElement, direction: number){
     element.scrollLeft += 300 * direction
   }
@@ -83,6 +71,14 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   teste(){
     console.log('teste')
   }
+  showModal(cardData: SeriesData){
+    this.modalData = {...cardData}
+    this.modal = true
+
+  }
+  keepModalOpen(keepOpen:boolean){
+    this.modal = false
+  }
   ngOnInit(): void {
     this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
       this.Subscription.push(serie.subscribe(item => {
@@ -94,6 +90,8 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
         this.dataKeepWatching.push(item as SeriesData)
       }))
     })
+    console.log(this.dataPopular)
+
   }
   ngOnDestroy() {
     this.Subscription.map(x => x.unsubscribe)

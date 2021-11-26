@@ -1,11 +1,9 @@
-
 section{
   background-color: #141414;
-  // box-sizing: border-box;
   font-size: 16px;
   min-height: 100vh;
   width: 100vw;
-  // overflow-x: hidden;
+  position: relative;
 }
 article{
   background-size: 100vw;
@@ -29,9 +27,6 @@ h1,h2, p, a{
 }
 .featured-movie{
 width: 100vw;
-// height: 50vw;
-background-position: center;
-background-size: cover;
 padding-top: 5vw;
 background-repeat: no-repeat;
 background-size:100vw;
@@ -98,8 +93,6 @@ nav .navbar-in-dropdown{
   z-index: 10;
   width: 18em;
   order: 1;
-
-  // height: max-content;
 }
 
 nav .navbar-in-dropdown li{
@@ -250,3 +243,4 @@ gap: 2vw;
   flex-shrink: 0;
   cursor: pointer;
 }
+

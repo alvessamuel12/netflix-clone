@@ -6,7 +6,7 @@
 {'font-size': '16px'})">
   <article
     class="featured-movie"
-    [ngStyle]="layoutSize !== 'XSmall' ?{
+    [ngStyle]="layoutSize !== 'XSmall' ? {
       'background-image': 'url(' + background + ')'
     } : {} "
     >
@@ -54,24 +54,24 @@
         </p>
       </div>
       <div class="button-wrapper">
-        <button mat-stroked-button>
+        <button>
           <mat-icon>play_arrow</mat-icon>
           <span>Assistir</span>
         </button>
-        <button mat-stroked-button>
+        <button>
           <mat-icon>info_outline</mat-icon>
           <span>Mais unformações</span>
         </button>
       </div>
     </div>
       <div class="popular">
-        <h2>Populares na Netflix{{layoutSize}}</h2>
+        <h2>Populares na Netflix</h2>
         <div class="card-box">
           <button (click)="slideCard2(cardsPopular, -1)"  mat-button>
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
           <ul class="card-wrapper" #cardsPopular>
-            <li class="card-item" *ngFor="let serie of dataPopular; let i = index" >
+            <li class="card-item" (click)="showModal(serie)" *ngFor="let serie of dataPopular; let i = index" >
                 <img  src="{{serie.cardImage}}">
             </li>
           </ul>
@@ -98,4 +98,6 @@
       </div>
     </div>
   </article>
+    <app-card-modal (keepModalOpen)="keepModalOpen($event)" *ngIf="modal" [modalData]="modalData"></app-card-modal>
+
 </section>
