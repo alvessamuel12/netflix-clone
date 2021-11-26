@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   recaptchaHidden = true
-  logoInitWidth = ''
+  logoInitWidth = '167px'
   dataForm = this.fb.group({
     login: ['', [Validators.required, this.createEmailOrPhoneValidator()]],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]]
@@ -37,10 +37,10 @@ export class LoginComponent implements OnInit {
     this.recaptchaHidden = false
   }
 
-  // Request the user data from the API if the form is valid. If the login is sucessfull, it saves the token and users data in the localStorage. After that, the application goes to the users page
+  // Request the user data from the API if the form is valid. If the login is sucessfull, it saves the token and users data in the localStorage. After that, the application goes to the profiles page
   performLogin() {
     if (this.dataForm.status === 'VALID') {
-      this.appService.postUserData(this.dataForm.value).subscribe(({token, users}) => {
+      this.appService.requestLogIn(this.dataForm.value).subscribe(({token, users}) => {
         localStorage.setItem('token', token)
         localStorage.setItem('users', JSON.stringify(users))
         this.dataForm.reset()

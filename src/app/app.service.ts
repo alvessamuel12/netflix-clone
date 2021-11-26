@@ -45,7 +45,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
         );
     }
 
-    postUserData(params: LoginParams) {
+    requestLogIn(params: LoginParams) {
         return this.http.post<LoginData>(this.baseUrl + 'login', params)
       }
 
