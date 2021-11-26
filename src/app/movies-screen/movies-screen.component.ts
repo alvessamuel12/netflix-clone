@@ -59,6 +59,7 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   modal = false
   isloadedPopular = false
   isloadedKeep = false
+  logoInitWidth = '9.70em'
   // title = ['Populares na Netflix','Continue assistindo como' + this.user.name]
   slideCard2(element: HTMLElement, direction: number){
     element.scrollLeft += 300 * direction

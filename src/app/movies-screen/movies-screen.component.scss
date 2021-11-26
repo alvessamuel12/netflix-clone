@@ -43,16 +43,16 @@ nav{
   height: 3em;
   position: relative;
 }
-#logo{
-  width: 9.70em;
-  height: auto;
-  padding-top: 0.4em;
-  order: 2;
-}
-#logo a{
-  width: 100%;
-  height: 100%;
-}
+// #logo{
+//   width: 9.70em;
+//   height: auto;
+//   padding-top: 0.4em;
+//   order: 2;
+// }
+// #logo a{
+//   width: 100%;
+//   height: 100%;
+// }
 button#hamburguer-menu {
   background-color: rgba($color: #000000, $alpha: 0);
   border-color:  rgba($color: #000000, $alpha: 0);
@@ -60,11 +60,12 @@ button#hamburguer-menu {
   padding: 0;
   border: none;
 }
+
 #hamburguer-menu mat-icon{
   color: #fff;
   font-size: 2.5em;
   background-color: rgba($color: #000000, $alpha: 0);
-  // width: 2em;
+  transform: translateY(-0.2em);
 }
 nav .navbar-out-dropdown{
   display: flex;
