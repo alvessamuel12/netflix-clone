@@ -1,0 +1,112 @@
+<section id="movies-screen"
+[ngStyle]="currentScreenSize === 'XSmall'  ? {'font-size': '12px'}
+:
+currentScreenSize === 'Small' ? {'font-size': '12px'} :
+(currentScreenSize === 'Medium' ? {'font-size': '12px'}
+:
+{'font-size': '16px'})">
+
+
+<div class="main-container">
+
+  <div class="home-main-container"  [ngStyle]="(currentScreenSize === 'Large') ? {'height':'746px'} : (currentScreenSize === 'Small') ? {'height':'702px'} : (currentScreenSize === 'XSmall') ? {'height':'511px'} : {}">
+    <div class="home-nav-container">
+      <div class="home-nav">
+        <div class="nav-logo">
+          <img src="../../assets/img/netflix-Logo 1.png" [ngStyle]="(currentScreenSize === 'Large') ? {'height':'746px'} : (currentScreenSize === 'Small') ? {'width':'108px'} : (currentScreenSize === 'XSmall') ? {'width':'88px'} : {}">
+        </div>
+      </div>
+    </div>
+
+    <div class="home-content-container" [ngStyle]="(currentScreenSize === 'Large') ? {'height':''} : (currentScreenSize === 'Small') ? {'padding':'75px'} : (currentScreenSize === 'XSmall') ? {'padding':'0', 'line-height': '0'} : {}">
+      <div class="top-card-content">
+        <h1 class="top-card-title">{{currentScreenSize}}Filmes, séries e muito mais. Sem limites.</h1>
+        <h2 class="top-card-subtitle">Assista onde quiser. Cancele quando quiser.</h2>
+        <h3 class="top-card-description">Pronto para assistir? Clique no botão abaixo para ser redirecionado para a tela de login.</h3>
+
+        <div>
+          <button class="login-button">Entrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="body-card-content">
+      <div class="card-description" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'1' , 'width':'auto'} : {'order':'0'}">
+        <h1 class="card-title">Aproveite na TV.</h1>
+        <h2 class="card-subtitle">Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, aparelhos de Blu-ray e outros dispositivos.</h2>
+      </div>
+      <div class="card-image" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'2' , 'width':'auto'} : {}">
+        <img src="../../assets/img/tv 1.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="body-card-content">
+      <div class="card-image" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'2' , 'width':'auto'} : {}">
+        <img src="../../assets/img/mobile-0819 1.png">
+      </div>
+      <div class="card-description" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'1' , 'width':'auto'} : {'order':'0'}">
+        <h1 class="card-title">Baixe séries para assistir offline.</h1>
+        <h2 class="card-subtitle">Salve seus títulos favoritos e sempre tenha algo para assistir.</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="body-card-content">
+      <div class="card-description" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'1' , 'width':'auto'} : {'order':'0'}">
+        <h1 class="card-title">Assista quando quiser.</h1>
+        <h2 class="card-subtitle">Assista no celular, tablet, Smart TV ou notebook sem pagar a mais por isso.</h2>
+      </div>
+      <div class="card-image" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'2' , 'width':'auto'} : {}">
+        <img src="../../assets/img/device-pile 1.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="body-card-content">
+      <div class="card-image" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'2' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'2' , 'width':'auto'} : {}">
+        <img src="../../assets/img/AAAABUb4fcnETtielPJer_ORwZ2iUanycANl37cr81zDaXC9Fmg9c42ofxt0yxetNltG2xUMgf2Aqimz_q1Nsv-38Ng_EjIc 1.png">
+      </div>
+      <div class="card-description" [ngStyle]="(currentScreenSize === 'Medium') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'Small') ? {'order':'1' , 'width':'auto'} : (currentScreenSize === 'XSmall') ? {'order':'1' , 'width':'auto'} : {'order':'0'}">
+        <h1 class="card-title">Crie perfis para crianças.</h1>
+        <h2 class="card-subtitle">Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="body-card-content">
+      <div class="footer-card-description">
+        <div>
+          <p class="footer-title">Dúvidas? Ligue <a>0800-761-4631</a></p>
+        </div>
+
+        <ul class="footer-ul" [ngStyle]="(currentScreenSize === 'Small') ? {'columns':'3'} : (currentScreenSize === 'XSmall') ? {'columns':'2'} : {'columns':'4'}">
+          <li class="footer-li"><a>Perguntas frequentes</a></li>
+          <li class="footer-li"><a>Relações com investidores</a></li>
+          <li class="footer-li"><a>Formas de assistir</a></li>
+          <li class="footer-li"><a>Informações corporativas</a></li>
+          <li class="footer-li"><a>Só na Netflix</a></li>
+          <li class="footer-li"><a>Centro de ajuda</a></li>
+          <li class="footer-li"><a>Carreiras</a></li>
+          <li class="footer-li"><a>Termos de uso</a></li>
+          <li class="footer-li"><a>Entre em contato</a></li>
+          <li class="footer-li"><a>Conta</a></li>
+          <li class="footer-li"><a>Resgatar cartão pré-pago</a></li>
+          <li class="footer-li"><a>Privacidade</a></li>
+          <li class="footer-li"><a>Teste de velocidade</a></li>
+          <li class="footer-li"><a>Imprensa</a></li>
+          <li class="footer-li"><a>Comprar cartão pré-pago</a></li>
+          <li class="footer-li"><a>Preferências de cookies</a></li>
+          <li class="footer-li"><a>Avisos legais</a></li>
+        </ul>
+        <p class="footer-country">Netflix Brasil</p>
+      </div>
+    </div>
+  </div>
+</div>
