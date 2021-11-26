@@ -50,7 +50,7 @@
         <p>
           Um agente do FBI persegue o ladrão de arte mais procurado do mundo.
           Ele só não esperava ter seu alvo como parceiro para prender uma
-          bandida muito esperta.
+          bandida muito esperta.{{layoutSize}}
         </p>
       </div>
       <div class="button-wrapper">
@@ -64,7 +64,7 @@
         </button>
       </div>
     </div>
-      <div class="popular"  *ngIf="isloadedPopular else spinner">
+      <!-- <div class="cardlist"  *ngIf="isloadedPopular else spinner">
         <h2>Populares na Netflix</h2>
         <div class="card-box">
           <button (click)="slideCard2(cardsPopular, -1)"  mat-button>
@@ -79,9 +79,23 @@
             <mat-icon>arrow_forward_ios</mat-icon>
           </button>
         </div>
-      </div>
-      <div class="popular"  *ngIf="isloadedKeep else spinner">
-        <h2>Continue assistindo como {{user.name}}</h2>
+      </div> -->
+      <app-card-list
+      class="cardlist"  *ngIf="isloadedPopular else spinner"
+      [title]='"Populares na Netflix"'
+      [data]='dataPopular'
+      (modalData)='getModalData($event)'
+      (modal)='getmodal($event)'
+      ></app-card-list>
+      <app-card-list
+      class="cardlist"  *ngIf="isloadedKeep else spinner"
+      [title]="'Continue assitindo como ' + user.name"
+      [data]='dataKeepWatching'
+      (modalData)='getModalData($event)'
+      (modal)='getmodal($event)'
+      ></app-card-list>
+      <!-- <div class="cardlist"  *ngIf="isloadedKeep else spinner">
+        <h2>Continue assitindo como {{user.name}}</h2>
         <div class="card-box">
           <button *ngIf="isOverflown(cardsKeepWatching)" (click)="slideCard2(cardsKeepWatching, -1)" mat-button>
             <mat-icon>arrow_back_ios</mat-icon>
@@ -95,7 +109,7 @@
             <mat-icon>arrow_forward_ios</mat-icon>
           </button>
         </div>
-      </div>
+      </div> -->
       <ng-template #spinner> <app-loading></app-loading></ng-template>
 
     </div>

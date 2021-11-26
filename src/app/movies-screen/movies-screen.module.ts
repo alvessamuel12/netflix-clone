@@ -9,12 +9,14 @@ import { MyTimePipe } from './my-tyme.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SharedmoduleModule } from '../sharedmodule/sharedmodule.module';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   declarations: [
     MoviesScreenComponent,
     CardModalComponent,
-    MyTimePipe
+    MyTimePipe,
+    CardListComponent
   ],
   imports: [
     CommonModule,

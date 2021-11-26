@@ -31,8 +31,15 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.showInfo();
+    this.getDataUser()
+
   }
 
+  getDataUser(){
+    const userDataJson = localStorage.getItem('users')
+    if(userDataJson)this.users = [...JSON.parse(userDataJson)]
+    console.log(this.users)
+  }
   showInfo() {
     this.appService.getUsers().subscribe(x => {
       // this.users = x.users;

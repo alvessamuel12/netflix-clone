@@ -46,7 +46,7 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   keepWatching = [7,8]
   user = {
     id: 0,
-    name: ''
+    name: 'Usuario 1'
   }
 
   dataPopular:Array<SeriesData> = []
@@ -59,6 +59,7 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   modal = false
   isloadedPopular = false
   isloadedKeep = false
+  // title = ['Populares na Netflix','Continue assistindo como' + this.user.name]
   slideCard2(element: HTMLElement, direction: number){
     element.scrollLeft += 300 * direction
   }
@@ -85,12 +86,17 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
   keepModalOpen(keepOpen:boolean){
     this.modal = false
   }
-
+  getModalData(modalData:SeriesData){
+    this.modalData = {...modalData}
+  }
+  getmodal(modal:boolean){
+    this.modal = modal
+  }
   ngOnInit(): void {
     this.activRoute.queryParams.subscribe(({id, name}) => {
-      this.user = { name, id };
+      // this.user = { name, id };
     });
-    
+
     this.moviesScreenService.getDataSeries(this.polular).forEach((serie) => {
       this.Subscription.push(serie.subscribe(item => {
         const teste = setTimeout(() => {
@@ -109,7 +115,6 @@ export class MoviesScreenComponent implements OnInit, OnDestroy {
         }, 2000);
       }))
     })
-    console.log(this.dataPopular)
 
   }
   ngOnDestroy() {
