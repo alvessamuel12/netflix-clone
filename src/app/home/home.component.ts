@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
     [Breakpoints.XLarge, 'XLarge'],
   ]);
 
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver, private router: Router) {
     breakpointObserver
       .observe([
         Breakpoints.XSmall,
@@ -47,6 +48,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getNextPage() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['profiles'])
+    }
+    else {
+      this.router.navigate(['login'])
+    }
+
   }
 
 }
