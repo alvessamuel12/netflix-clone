@@ -6,10 +6,11 @@ import { UsersComponent } from './users/users.component';
 import { MoviesScreenComponent } from './movies-screen/movies-screen.component';
 
 const routes: Routes = [
-  {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
   {path: "profiles", component: UsersComponent},
-  {path: "browse", component: MoviesScreenComponent}
+  {path: "browse", component: MoviesScreenComponent},
+  {path: "", component: HomeComponent},
+  {path: "**", component: HomeComponent}
 ];
 
 @NgModule({

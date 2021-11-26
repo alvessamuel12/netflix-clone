@@ -1,7 +1,16 @@
 
 <section>
 
+<<<<<<< HEAD
   <img src="../assets/img/netflix-Logo 1.png" alt="Netflix logo" srcset="">
+=======
+  <ul>
+    <li (click)="switchToUser(user.id, user.name)" *ngFor="let user of users">
+      <label for="">{{user.name}}</label>
+      <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
+    </li>
+  </ul>
+>>>>>>> 4b3b326923c9991be1174d46b654930721dcca5d
 
   <div class="users-wrapper">
     <h2>Quem está assistindo?</h2>
