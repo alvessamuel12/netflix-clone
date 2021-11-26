@@ -20,5 +20,4 @@ export class LogoComponent implements OnInit, DoCheck {
   ngDoCheck(){
     this.localLayoutSize = this.appService.layoutSize
   }
-
 }
