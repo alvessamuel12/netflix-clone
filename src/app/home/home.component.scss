@@ -1,6 +1,5 @@
 .home-main-container {
   width: 100%;
-  height: 746px;
   background-color: black;
   background-image: url("/assets/img/netflix_background 1.png");
   overflow: hidden;
@@ -11,8 +10,9 @@
 .home-nav-container {
   width: 100%;
   height: 57px;
-  margin: 0 58px;
+  margin: 0 2em;
 }
+
 
 .home-nav {
   width: 100%;
@@ -21,58 +21,53 @@
 }
 .nav-logo {
   display: inline-block;
-  margin-right: 78vw;
 }
 
 .home-content-container {
   height: 500px;
-  padding: 75px 45px;
 }
 
- .top-card-content {
-   display: flex;
-   flex-direction: column;
-   padding: 75px 0;
-   margin: 0 auto;
-   width: 100%;
-   max-width: 950px;
+.top-card-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 950px;
+  min-width: 360px;
 }
 
- .top-card-title {
-  font-size: 64px;
+.top-card-title {
+  font-size: 4em;
   color: white;
   font-weight: 700;
-  margin: 0;
   display: block;
   text-align: center;
-  margin: 0 75px;
-  line-height: 70.4px;
+  margin: 0 1rem;
+  line-height: 50px;
   max-width: 800px;
 }
 
 .top-card-subtitle {
-  font-size: 26px;
+  font-size: 2.3em;
   color: white;
   font-weight: 400;
-  margin: 0;
   display: block;
   text-align: center;
-  margin: 0 75px;
+  margin: 0 1rem;
   max-width: 800px;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .top-card-description {
-  font-size: 20px;
+  font-size: 2.3em;
   color: white;
   font-weight: 400;
-  margin: 0;
   display: block;
   text-align: center;
-  margin: 0 75px;
+  margin: 0 1rem;
   max-width: 800px;
 }
-
 .login-button {
   background-color: #E50914;
   border-radius: 4px;
@@ -89,16 +84,18 @@
   max-width: 800px;
   cursor: pointer;
 }
-
 .login-button:hover {
   background-color: #FD000D;
 }
 
+
+
 .card-container {
   width: 100%;
   background-color: black;
-  padding: 70px 0;
+  padding: 2rem 0;
   border-bottom: 8px solid #333333;
+  min-width: 360px;
 }
 
 .body-card-content {
@@ -119,15 +116,14 @@
   background-size: cover;
   background-position: center;
 }
-
 .card-description {
   align-self: center;
-  width: 52%;
   height: 100%;
+  width: 52%;
 }
 
 .card-title {
-  font-size: 50px;
+  font-size: 3em;
   color: white;
   font-weight: 700;
   margin: 0;
@@ -135,10 +131,11 @@
   line-height: 55px;
   max-width: 800px;
   padding-bottom: 1vw;
+  text-align: center;
 }
 
 .card-subtitle {
-  font-size: 26px;
+  font-size: 2em;
   color: white;
   font-weight: 400;
   margin: 0;
@@ -146,5 +143,53 @@
   text-align: center;
   max-width: 800px;
   margin-bottom: 16px;
-  text-align: inherit;
+  text-align: center;
+}
+
+
+
+.footer-card-description {
+  align-self: center;
+  min-width: 360px;
+  padding: 3em;
+}
+
+.footer-title {
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.footer-title a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #757575;
+}
+.footer-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  columns: 4;
+}
+.footer-li {
+  font-size: 13px;
+  white-space: nowrap;
+  display: block;
+  color: #757575;
+  margin-bottom: 16px;
+  padding-right: 12px;
+}
+.footer-li a{
+  text-decoration: none;
+}
+.footer-li a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #757575;
+}
+.footer-country {
+  font-size: 13px;
+  color: #757575;
+  font-weight: 400;
+  margin-top: 24px;
 }
