@@ -1,1 +1,12 @@
-<p>users works!</p>
+<img src="../assets/img/netflix-Logo 1.png" alt="Netflix logo" srcset="">
+
+<div>
+  <h2>Quem está assistindo?</h2>
+</div>
+
+<ul>
+  <li *ngFor="let user of users">
+    <label for="">{{user.name}}</label>
+    <img src="{{user.avatarUrl}}" alt="{{user.name}}" [id]="user.id">
+  </li>
+</ul>
