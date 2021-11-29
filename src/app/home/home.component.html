@@ -93,13 +93,13 @@ currentScreenSize === 'Small' ? {'font-size': '12px'} :
 
     <div class="card-container">
       <div class="body-card-content">
-        <div class="footer-card-description">
+        <div class="footer-card-description" [ngStyle]="currentScreenSize === 'XSmall' ? {'padding': '0px'} : {}">
           <div>
             <p class="footer-title">Dúvidas? Ligue <a>0800-761-4631</a></p>
           </div>
 
           <ul class="footer-ul"
-            [ngStyle]="(currentScreenSize === 'Small') ? {'columns':'3'} : (currentScreenSize === 'XSmall') ? {'columns':'2'} : {'columns':'4'}">
+            [ngStyle]="currentScreenSize === 'Small' ? {'columns':'3'} : (currentScreenSize === 'XSmall' ? {'columns':'2'} : {'columns':'4'})">
             <li class="footer-li"><a>Perguntas frequentes</a></li>
             <li class="footer-li"><a>Relações com investidores</a></li>
             <li class="footer-li"><a>Formas de assistir</a></li>

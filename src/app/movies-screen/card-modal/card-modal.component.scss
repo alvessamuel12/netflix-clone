@@ -13,6 +13,13 @@ section.modal{
   width: 60vw;
   height: 50vw;
   margin-top: 3vw;
+  margin-right: 0;
+}
+@media (max-width: 440px) {
+  section.modal{
+  width: 90vw;
+  font-size: 12px;
+  }
 }
 .top-area{
   width: 100%;
